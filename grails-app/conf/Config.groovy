@@ -124,10 +124,20 @@ oauth {
 
             scope = 'email,read_stream,publish_actions,user_birthday,publish_stream'
 
-            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/facebook/callback"   //callback to oauth controller of oauth plugin
+            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/facebook/callback"
 
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookSuccess"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookFailure"
+        }
+        twitter {
+            api = org.scribe.builder.api.TwitterApi
+            key = 'YOUR_KEY'
+            secret = 'YOUR_SECRET'
+
+            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/twitter/callback"
+
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterSuccess"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterFailure"
         }
     }
 }

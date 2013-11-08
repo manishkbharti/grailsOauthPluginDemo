@@ -82,6 +82,7 @@
 </head>
 
 <body>
-<oauth:connect provider="facebook">Login using Facebook</oauth:connect>
+<oauth:connect provider="facebook">Login using Facebook</oauth:connect><br/>
+<oauth:connect provider="twitter">Login using Twitter</oauth:connect>
 </body>
 </html>
