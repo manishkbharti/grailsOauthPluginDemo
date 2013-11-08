@@ -1,0 +1,138 @@
+Provided that you have read the Quick Start guide, you should have some configuration which looks a little like this:
+
+{code}
+    oauth {
+        providers {
+            twitter {
+                api = TwitterApi
+                key = 'my-key'
+                secret = 'my-secret'
+            }
+        }
+    }
+{code}
+
+You're now in a good position to configure some further elements of the plugin if you need to.
+
+h1. Provider specific configuration
+
+h2. Adding a second provider
+
+Adding a second provider is as easy as adding your provider-specific configuration to the providers block:
+
+{code}
+    oauth {
+        providers {
+            twitter {
+                api = TwitterApi
+                key = 'my-key'
+                secret = 'my-secret'
+            }
+            facebook {
+                api = FacebookApi
+                key = 'other-key'
+                secret = 'other-secret'
+            }
+        }
+    }
+{code}
+
+h2. Adding a callback URI
+
+Some providers allow for a callback URI to be specified on the providers side. If you would prefer to pass the callback as you make the authentication request, you can do so by configuring the callback parameter in the configuration.
+
+A callback uri can be specified at the provider level:
+
+{code}
+  oauth {
+      providers {
+          twitter {
+              api = TwitterApi
+              key = 'my-key'
+              secret = 'my-secret'
+              callback = "${application.baseUrl}/oauth/twitter/callback"
+          }
+      }
+  }
+{code}
+
+{note}
+You can specify whatever you'd like for a callback, but the format http://yourApp.url/oauth/providerName/callback will allow for the built-in oauth callback controller to add the accessToken details into your application's session as detailed in '4. Using the Plugin'.
+{note}
+
+h2. Adding a SignatureType
+
+An Oauth2 SignatureType can be specified at the provider level, if your provider requires a specific method.
+
+Valid @SignatureType@s are @SignatureType.QueryString@ or @SignatureType.Header@:
+
+{code}
+  oauth {
+      providers {
+          twitter {
+              api = TwitterApi
+              key = 'my-key'
+              secret = 'my-secret'
+              signatureType = SignatureType.QueryString
+          }
+      }
+  }
+{code}
+
+h2. Oauth provider scope
+
+Some providers (such as google) require a scope to be set for an oauth connection. The scope directive shown below will enable you to set this as necessary.
+
+{code}
+  oauth {
+      providers {
+          twitter {
+              api = GoogleApi
+              key = 'my-key'
+              secret = 'my-secret'
+              scope = 'my-scope'
+          }
+      }
+  }
+{code}
+
+h1. Global configuration
+
+h2. Turning request debugging on
+
+As of Scribe 1.2.3, debugging of HTTP traffic can be enabled to make troubleshooting issues easier. To enable this feature, add 'debug = true' in your global configuration:
+
+{code}
+  oauth {
+      providers {
+          twitter {
+              api = TwitterApi
+              key = 'my-key'
+              secret = 'my-secret'
+          }
+      }
+      debug = true
+  }
+{code}
+
+h2. Adding connect and receive timeouts
+
+Sometimes you want to account for slower providers, or just fail more quickly if a provider isn't responding the way you would like it to. Connect and Receive timeouts can be configured for this purpose.
+
+The default value for both of these parameters is 30000ms (30 seconds)
+
+{code}
+    oauth {
+        providers {
+            twitter {
+                api = TwitterApi
+                key = 'myKey'
+                secret = 'mySecret'
+            }
+        }
+        connectTimeout = 5000
+        receiveTimeout = 5000
+    }
+{code}
+
+In the example above, we set both connect and receive timeouts to be 5000ms (5 seconds). This is also useful if you want to test your resilience to failure as part of a test suite.

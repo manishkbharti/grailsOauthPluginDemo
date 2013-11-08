@@ -1,0 +1,39 @@
+<plugin name='oauth' version='2.1.0' grailsVersion='1.3.1 &gt; *'>
+  <author>Antony Jones, Peter Ledbrook</author>
+  <authorEmail>aj#desirableobjects.co.uk</authorEmail>
+  <title>Oauth Plugin</title>
+  <description>Provides oAuth integration for Grails, using the Scribe framework</description>
+  <documentation>http://aiten.github.com/grails-oauth-scribe/</documentation>
+  <type>OauthGrailsPlugin</type>
+  <resources>
+    <resource>OauthUrlMappings</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.OauthController</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.OauthResourceService</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.OauthService</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.exception.InvalidOauthProviderException</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.exception.UnknownProviderException</resource>
+    <resource>uk.co.desirableobjects.oauth.scribe.OauthTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+    <repository name='http://repo.desirableobjects.co.uk' url='http://repo.desirableobjects.co.uk/' />
+  </repositories>
+  <dependencies>
+    <test>
+      <dependency group='org.objenesis' name='objenesis' version='1.2' />
+      <dependency group='org.gmock' name='gmock' version='0.8.2' />
+    </test>
+    <runtime>
+      <dependency group='org.scribe' name='scribe' version='1.3.2' />
+    </runtime>
+  </dependencies>
+  <plugins>
+    <test>
+      <plugin group='org.grails.plugins' name='spock' version='0.6' />
+    </test>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
