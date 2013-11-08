@@ -119,7 +119,7 @@ oauth {
         facebook {
             api = org.scribe.builder.api.FacebookApi
 
-            key = 'YOUT_KEY'
+            key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
             scope = 'email,read_stream,publish_actions,user_birthday,publish_stream'
