@@ -127,7 +127,7 @@ oauth {
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/facebook/callback"
 
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookSuccess"
-            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookFailure"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         twitter {
             api = org.scribe.builder.api.TwitterApi
@@ -137,7 +137,7 @@ oauth {
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/twitter/callback"
 
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterSuccess"
-            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterFailure"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
     }
 }
