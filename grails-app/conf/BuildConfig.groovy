@@ -5,6 +5,7 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
+grails.server.port.http = 8181
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
@@ -53,7 +54,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.42"
+        build ":tomcat:7.0.47"
 
         // plugins for the compile step
         compile ":scaffolding:2.0.0"
@@ -62,7 +63,7 @@ grails.project.dependency.resolution = {
         compile ":oauth:2.1.0"
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.1" // or ":hibernate4:4.1.11.1"
+        runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.1"
         runtime ":database-migration:1.3.5"
         runtime ":jquery:1.10.2"
         runtime ":resources:1.2"
