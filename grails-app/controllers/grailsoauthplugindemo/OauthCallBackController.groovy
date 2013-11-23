@@ -7,6 +7,10 @@ class OauthCallBackController {
 
     def oauthService
 
+    def index() {
+        render view: '/index'
+    }
+
     def facebookSuccess() {
         Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
         if (facebookAccessToken) {
@@ -38,6 +42,22 @@ class OauthCallBackController {
                     lang: twitterResponseDetailed.lang, created_at: twitterResponseDetailed.created_at]
 
             render view: '/index', model: [provider: 'Twitter', data: data]
+        } else {
+            flash.error = "Token not found."
+            render view: '/index'
+        }
+    }
+
+    def linkedin() {
+        Token linkedinAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('linkedin')]
+        if (linkedinAccessToken) {
+            def linkedInResponse = oauthService.getLinkedInResource(linkedinAccessToken, "http://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,date-of-birth)?format=json")
+            def linkedinParsedResponse = JSON.parse(linkedInResponse?.getBody())
+
+            Map data = [id: linkedinParsedResponse.id, emailAddress: linkedinParsedResponse.emailAddress, firstName: linkedinParsedResponse.firstName,
+                    lastName: linkedinParsedResponse.lastName, dateOfBirth: linkedinParsedResponse.dateOfBirth]
+
+            render view: '/index', model: [provider: 'LinkedIn', data: data]
         } else {
             flash.error = "Token not found."
             render view: '/index'

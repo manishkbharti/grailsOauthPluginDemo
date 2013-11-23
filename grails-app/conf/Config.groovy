@@ -118,14 +118,11 @@ oauth {
     providers {
         facebook {
             api = org.scribe.builder.api.FacebookApi
-
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
-
             scope = 'email,read_stream,publish_actions,user_birthday,publish_stream'
 
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/facebook/callback"
-
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookSuccess"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
@@ -135,8 +132,16 @@ oauth {
             secret = 'YOUR_SECRET'
 
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/twitter/callback"
-
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterSuccess"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
+        }
+        linkedin {
+            api = org.scribe.builder.api.LinkedInApi
+            key = 'YOUR_KEY'
+            secret = 'YOUR_SECRET'
+
+            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/linkedin/callback"
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/linkedin"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
     }
