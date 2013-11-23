@@ -5,6 +5,11 @@
 </head>
 
 <body>
+
+<g:if test="${flash.error}">
+    <div class="errors">${flash.error}</div>
+</g:if>
+
 <oauth:connect provider="facebook">Facebook</oauth:connect><br/>
 <oauth:connect provider="twitter">Twitter</oauth:connect><br/>
 
