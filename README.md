@@ -7,3 +7,4 @@ Grails Oauth Plugin Demo
 * Twitter
 * LinkedIn
 * Google
+* Yahoo

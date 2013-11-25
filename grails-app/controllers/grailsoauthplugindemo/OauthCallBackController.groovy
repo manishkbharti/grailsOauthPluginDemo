@@ -80,6 +80,28 @@ class OauthCallBackController {
         }
     }
 
+    def yahoo() {
+        Token yahooAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('yahoo')]
+        if (yahooAccessToken) {
+            def yahooResource = oauthService.getYahooResource(yahooAccessToken, "http://social.yahooapis.com/v1/me/guid?format=json")
+            def yahooResponse = JSON.parse(yahooResource?.getBody())
+
+            yahooResource = oauthService.getYahooResource(yahooAccessToken, "http://social.yahooapis.com/v1/user/${yahooResponse?.guid?.value}/profile/usercard?format=json")
+            yahooResponse = JSON.parse(yahooResource?.getBody())
+
+            def yahooProfile = yahooResponse.profile
+
+            Map data = [guid: yahooProfile.guid, nickname: yahooProfile.nickname, location: yahooProfile.location, displayAge: yahooProfile.displayAge,
+                    gender: yahooProfile.gender, image: yahooProfile.image, memberSince: yahooProfile.memberSince, updated: yahooProfile.updated,
+                    profileUrl: yahooProfile.profileUrl]
+
+            render view: '/index', model: [provider: 'Yahoo', data: data]
+        } else {
+            flash.error = "Token not found."
+            render view: '/index'
+        }
+    }
+
     def failure() {
         flash.error = "Error."
         render view: '/index'

@@ -1,3 +1,5 @@
+import org.scribe.builder.api.*
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -117,7 +119,7 @@ log4j = {
 oauth {
     providers {
         facebook {
-            api = org.scribe.builder.api.FacebookApi
+            api = FacebookApi
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
             scope = 'email,read_stream,publish_actions,user_birthday,publish_stream'
@@ -127,7 +129,7 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         twitter {
-            api = org.scribe.builder.api.TwitterApi
+            api = TwitterApi
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
@@ -136,7 +138,7 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         linkedin {
-            api = org.scribe.builder.api.LinkedInApi
+            api = LinkedInApi
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
@@ -145,7 +147,7 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         google {
-            api = org.scribe.builder.api.GoogleApi
+            api = GoogleApi
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
@@ -153,6 +155,15 @@ oauth {
 
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/google/callback"
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/google"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
+        }
+        yahoo {
+            api = YahooApi
+            key = 'YOUR_KEY'
+            secret = 'YOUR_SECRET'
+
+            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/yahoo/callback"
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/yahoo"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
     }
