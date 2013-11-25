@@ -64,6 +64,22 @@ class OauthCallBackController {
         }
     }
 
+    def google() {
+        Token googleAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('google')]
+        if (googleAccessToken) {
+            def googleResource = oauthService.getGoogleResource(googleAccessToken, "https://www.googleapis.com/oauth2/v1/userinfo")
+            def googleResponse = JSON.parse(googleResource?.getBody())
+
+            Map data = [id: googleResponse.id, name: googleResponse.name, given_name: googleResponse.given_name, family_name: googleResponse.family_name,
+                    gender: googleResponse.gender, link: googleResponse.link]
+
+            render view: '/index', model: [provider: 'Google +', data: data]
+        } else {
+            flash.error = "Token not found."
+            render view: '/index'
+        }
+    }
+
     def failure() {
         flash.error = "Error."
         render view: '/index'

@@ -13,6 +13,7 @@
 <oauth:connect provider="facebook">Facebook</oauth:connect><br/>
 <oauth:connect provider="twitter">Twitter</oauth:connect><br/>
 <oauth:connect provider="linkedin">LinkedIn</oauth:connect><br/>
+<oauth:connect provider="google">Google</oauth:connect><br/>
 
 <g:if test="${data}">
     <div style="margin-top: 20px">

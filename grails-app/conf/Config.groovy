@@ -144,5 +144,16 @@ oauth {
             successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/linkedin"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
+        google {
+            api = org.scribe.builder.api.GoogleApi
+            key = 'YOUR_KEY'
+            secret = 'YOUR_SECRET'
+
+            scope = 'https://www.googleapis.com/auth/userinfo.profile'
+
+            callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/google/callback"
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/google"
+            failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
+        }
     }
 }
