@@ -85,6 +85,8 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+grails.resources.adhoc.excludes = ['**/WEB-INF/**','**/META-INF/**']
+
 environments {
     development {
         grails.logging.jul.usebridge = true
