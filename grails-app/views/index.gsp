@@ -13,7 +13,7 @@
 <oauth:connect provider="facebook">Facebook</oauth:connect><br/>
 <oauth:connect provider="twitter">Twitter</oauth:connect><br/>
 <oauth:connect provider="linkedin">LinkedIn</oauth:connect><br/>
-<oauth:connect provider="google">Google</oauth:connect><br/>
+<oauth:connect provider="google">Google</oauth:connect> (Currently using Oauth2. If you want to use oauth1 just change "api = Google2Api" to "api = GoogleApi" in Config.groovy)<br/>
 <oauth:connect provider="yahoo">Yahoo</oauth:connect><br/>
 
 <g:if test="${data}">

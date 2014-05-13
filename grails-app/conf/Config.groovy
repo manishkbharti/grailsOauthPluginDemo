@@ -1,3 +1,4 @@
+import org.scribe.api.Google2Api
 import org.scribe.builder.api.*
 
 // locations to search for config files that get merged into the main config;
@@ -85,7 +86,7 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
-grails.resources.adhoc.excludes = ['**/WEB-INF/**','**/META-INF/**']
+grails.resources.adhoc.excludes = ['**/WEB-INF/**', '**/META-INF/**']
 
 environments {
     development {
@@ -149,7 +150,8 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         google {
-            api = GoogleApi
+//            api = GoogleApi                   // Using oauth 1
+            api = Google2Api                    // Using oauth 2
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
