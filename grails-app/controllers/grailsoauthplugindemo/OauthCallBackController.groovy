@@ -83,10 +83,10 @@ class OauthCallBackController {
     def yahoo() {
         Token yahooAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('yahoo')]
         if (yahooAccessToken) {
-            def yahooResource = oauthService.getYahooResource(yahooAccessToken, "http://social.yahooapis.com/v1/me/guid?format=json")
+            def yahooResource = oauthService.getYahooResource(yahooAccessToken, "https://social.yahooapis.com/v1/me/guid?format=json")
             def yahooResponse = JSON.parse(yahooResource?.getBody())
 
-            yahooResource = oauthService.getYahooResource(yahooAccessToken, "http://social.yahooapis.com/v1/user/${yahooResponse?.guid?.value}/profile/usercard?format=json")
+            yahooResource = oauthService.getYahooResource(yahooAccessToken, "https://social.yahooapis.com/v1/user/${yahooResponse?.guid?.value}/profile/usercard?format=json")
             yahooResponse = JSON.parse(yahooResource?.getBody())
 
             def yahooProfile = yahooResponse.profile
