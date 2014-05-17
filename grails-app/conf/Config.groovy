@@ -132,7 +132,7 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         twitter {
-            api = TwitterApi
+            api = TwitterApi.SSL.class
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 
