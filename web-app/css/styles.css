@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+}
+
+/* wrapper for page content to push down footer */
+.page-container {
+    min-height: 100%;
+    height: auto !important;
+    /* negative indent footer by its height */
+    margin: 0 auto -120px;
+    /* pad bottom by footer height */
+    padding: 0 0 120px;
+}
+
+/* set the fixed height of the footer here */
+#footer {
+    height: 120px;
+    background-color: #313539;
+    border: 0 solid #515559;
+    border-top-width: 1px;
+}
+
+#footer > .container {
+    padding: 20px;
+}
+
+#footer a {
+    color: #cccccc;
+
+}
+
+#footer a:hover {
+    color: #00FF00;
+    margin-left: -2px;
+    text-decoration: none;
+}
+
+/*===================================================*/
+
+#mainContent {
+    padding-top: 70px;
+}
+
+#mainContent a {
+    color: #00FF00;
+}

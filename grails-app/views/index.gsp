@@ -1,41 +1,87 @@
+<%@ page defaultCodec="none" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main"/>
+    <style type="text/css">
+    #mainContent a {
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+    </style>
 </head>
 
 <body>
+<gopd:ifAnyDisconnected>
+    <h3>Authenticate</h3>
 
-<g:if test="${flash.error}">
-    <div class="errors">${flash.error}</div>
-</g:if>
+    <div class="provider-list jumbotron">
+        <oauth:disconnected provider="facebook">
+            <oauth:connect provider="facebook" title="Facebook">
+                <i class="fa fa-facebook-square fa-4x"></i>
+            </oauth:connect>
+        </oauth:disconnected>
 
-<oauth:connect provider="facebook">Facebook</oauth:connect><br/>
-<oauth:connect provider="twitter">Twitter</oauth:connect><br/>
-<oauth:connect provider="linkedin">LinkedIn</oauth:connect><br/>
-<oauth:connect provider="google">Google</oauth:connect> (Using Oauth2. For oauth1 just change "api = Google2Api" to "api = GoogleApi" in Config.groovy)<br/>
-<oauth:connect provider="yahoo">Yahoo</oauth:connect><br/>
+        <oauth:disconnected provider="google">
+            <oauth:connect provider="google" title="Google">
+                <i class="fa fa-google-plus-square fa-4x"></i>
+            </oauth:connect>
+        </oauth:disconnected>
 
-<g:if test="${data}">
-    <div style="margin-top: 20px">
-        <h3>${provider} Response</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Key</th>
-                <th>Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <g:each in="${data?.keySet()}" var="resp">
-                <tr>
-                    <td>${resp}</td>
-                    <td>${data[resp]}</td>
-                </tr>
-            </g:each>
-            </tbody>
-        </table>
+        <oauth:disconnected provider="linkedin">
+            <oauth:connect provider="linkedin" title="LinkedIn">
+                <i class="fa fa-linkedin-square fa-4x"></i>
+            </oauth:connect>
+        </oauth:disconnected>
+
+        <oauth:disconnected provider="twitter">
+            <oauth:connect provider="twitter" title="Twitter">
+                <i class="fa fa-twitter-square fa-4x"></i>
+            </oauth:connect>
+        </oauth:disconnected>
+
+        <oauth:disconnected provider="yahoo">
+            <oauth:connect provider="yahoo" title="Yahoo">
+                <i class="fa fa-yahoo fa-4x"></i>
+            </oauth:connect>
+        </oauth:disconnected>
     </div>
-</g:if>
+</gopd:ifAnyDisconnected>
+
+<gopd:ifAnyConnected>
+    <h3>Revoke Token</h3>
+
+    <div class="provider-list jumbotron">
+        <oauth:connected provider="facebook">
+            <g:link controller="oauthCallBack" action="revoke" id="facebook" title="Facebook">
+                <i class="fa fa-facebook-square fa-4x"></i>
+            </g:link>
+        </oauth:connected>
+
+        <oauth:connected provider="google">
+            <g:link controller="oauthCallBack" action="revoke" id="google" title="Google">
+                <i class="fa fa-google-plus-square fa-4x"></i>
+            </g:link>
+        </oauth:connected>
+
+        <oauth:connected provider="linkedin">
+            <g:link controller="oauthCallBack" action="revoke" id="linkedin" title="LinkedIn">
+                <i class="fa fa-linkedin-square fa-4x"></i>
+            </g:link>
+        </oauth:connected>
+
+        <oauth:connected provider="twitter">
+            <g:link controller="oauthCallBack" action="revoke" id="twitter" title="Twitter">
+                <i class="fa fa-twitter-square fa-4x"></i>
+            </g:link>
+        </oauth:connected>
+
+        <oauth:connected provider="yahoo">
+            <g:link controller="oauthCallBack" action="revoke" id="yahoo" title="Yahoo">
+                <i class="fa fa-yahoo fa-4x"></i>
+            </g:link>
+        </oauth:connected>
+    </div>
+</gopd:ifAnyConnected>
 </body>
 </html>

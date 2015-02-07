@@ -39,6 +39,7 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+grails.resources.adhoc.includes = ['/fonts/*']
 
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
@@ -132,7 +133,7 @@ oauth {
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         twitter {
-            api = TwitterApi.SSL.class
+            api = TwitterApi
             key = 'YOUR_KEY'
             secret = 'YOUR_SECRET'
 

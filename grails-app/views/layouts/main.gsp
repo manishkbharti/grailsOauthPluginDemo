@@ -15,25 +15,25 @@
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
     <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 
+    <r:require modules="style, fontAwesome"/>
     <g:layoutHead/>
     <r:layoutResources/>
 </head>
 
 <body>
-<div id="grailsLogo" style="padding-bottom: 10px; padding-top: 10px; text-align: center">
-    Grails Oauth Plugin Demo
+<div class="page-container">
+
+    <g:render template="/layouts/navbar"/>
+
+    <div class="container" id="mainContent">
+        <g:render template="/templates/flashMessages"/>
+        <g:layoutBody/>
+    </div>
 </div>
 
-<div style="padding: 10px">
-    <g:layoutBody/>
-</div>
-
-<div class="footer">
-    <a href="https://github.com/manishkbharti/grailsOauthPluginDemo">Grails Oauth Plugin Demo</a>
-</div>
+<g:render template="/layouts/footer"/>
 
 <div id="spinner" class="spinner" style="display:none;">
     <g:message code="spinner.alt" default="Loading&hellip;"/>
