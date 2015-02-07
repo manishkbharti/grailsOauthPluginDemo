@@ -129,7 +129,7 @@ oauth {
             scope = 'email,read_stream,publish_actions,user_birthday,publish_stream'
 
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/facebook/callback"
-            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebookSuccess"
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/facebook"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         twitter {
@@ -138,7 +138,7 @@ oauth {
             secret = 'YOUR_SECRET'
 
             callback = "http://localhost:8080/grailsOauthPluginDemo/oauth/twitter/callback"
-            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitterSuccess"
+            successUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/twitter"
             failureUri = "http://localhost:8080/grailsOauthPluginDemo/oauthCallBack/failure"
         }
         linkedin {
